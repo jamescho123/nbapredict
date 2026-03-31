@@ -6,6 +6,7 @@ More secure and feature-rich than custom auth.
 """
 
 import os
+import time
 import streamlit as st
 from supabase import create_client, Client
 from typing import Optional, Dict, Tuple
@@ -13,6 +14,34 @@ from typing import Optional, Dict, Tuple
 # Supabase configuration
 SUPABASE_URL = os.getenv('SUPABASE_URL', 'https://mxnpfsiyaqqwdcokukij.supabase.co')
 SUPABASE_ANON_KEY = os.getenv('SUPABASE_ANON_KEY', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im14bnBmc2l5YXFxd2Rjb2t1a2lqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjA4ODc2MDQsImV4cCI6MjA3NjQ2MzYwNH0.ihAvD42I16OUDrnN4AIVBY_xUZy0sGpkFfylW5tV0gw')
+AUTH_CACHE_SECONDS = 60
+
+
+def _is_timeout_error(error: Exception) -> bool:
+    return "timed out" in str(error).lower() or "timeout" in str(error).lower()
+
+
+def _admin_role_for_email(email: str) -> Optional[str]:
+    admin_emails = ['admin@nba.com', 'administrator@nba.com', 'jamescho@jumbosoft.com', 'jamescho']
+    if email.lower() in [e.lower() for e in admin_emails]:
+        return 'admin'
+    return None
+
+
+def _build_user_data(user, role: Optional[str] = None, session=None) -> Dict:
+    email = getattr(user, "email", "") or ""
+    metadata = getattr(user, "user_metadata", {}) or {}
+    resolved_role = role or metadata.get('role') or _admin_role_for_email(email) or 'user'
+    user_data = {
+        'user_id': user.id,
+        'email': email,
+        'username': metadata.get('username', email.split('@')[0] if email else 'User'),
+        'created_at': getattr(user, "created_at", None),
+        'role': str(resolved_role).lower(),
+    }
+    if session is not None:
+        user_data['session'] = session
+    return user_data
 
 def get_supabase_client() -> Optional[Client]:
     """Get Supabase client instance"""
@@ -34,6 +63,9 @@ def init_auth_session():
     
     if 'user_data' not in st.session_state:
         st.session_state.user_data = None
+
+    if 'auth_checked_at' not in st.session_state:
+        st.session_state.auth_checked_at = 0.0
     
     if 'supabase_client' not in st.session_state:
         st.session_state.supabase_client = get_supabase_client()
@@ -44,67 +76,61 @@ def check_authentication() -> bool:
     
     if not st.session_state.supabase_client:
         return False
+
+    cached_user = st.session_state.get('user_data')
+    last_checked = float(st.session_state.get('auth_checked_at', 0.0) or 0.0)
+    if st.session_state.get('authenticated') and cached_user and (time.time() - last_checked) < AUTH_CACHE_SECONDS:
+        return True
     
     try:
         # Get current session
         user = st.session_state.supabase_client.auth.get_user()
         
         if user and user.user:
+            role = get_user_role(user.user.id, user.user.email, user_metadata=user.user.user_metadata)
             st.session_state.authenticated = True
-            # Get role from metadata or database
-            role = get_user_role(user.user.id, user.user.email)
-            st.session_state.user_data = {
-                'user_id': user.user.id,
-                'email': user.user.email,
-                'username': (user.user.user_metadata or {}).get('username', user.user.email.split('@')[0]),
-                'created_at': user.user.created_at,
-                'role': role
-            }
+            st.session_state.user_data = _build_user_data(user.user, role=role)
+            st.session_state.auth_checked_at = time.time()
             return True
         else:
             st.session_state.authenticated = False
             st.session_state.user_data = None
+            st.session_state.auth_checked_at = time.time()
             return False
     except Exception:
+        if st.session_state.get('authenticated') and cached_user:
+            return True
         st.session_state.authenticated = False
         st.session_state.user_data = None
         return False
 
-def get_user_role(user_id: str, email: str) -> str:
+def get_user_role(user_id: str, email: str, user_metadata: Optional[Dict] = None) -> str:
     """Get user role from database or metadata. Returns 'admin' or 'user'"""
     from db_config import get_connection, DB_SCHEMA
     
     # First check user metadata from Supabase
     try:
-        init_auth_session()
-        if 'supabase_client' in st.session_state and st.session_state.supabase_client:
-            try:
-                user = st.session_state.supabase_client.auth.get_user()
-                if user and user.user:
-                    metadata = user.user.user_metadata or {}
-                    role = metadata.get('role', None)
-                    if role:
-                        return role.lower()
-            except:
-                pass
+        metadata = user_metadata or {}
+        role = metadata.get('role', None)
+        if role:
+            return role.lower()
     except:
         pass
     
 
     # Hardcoded admin overrides (God Mode)
     # Check these BEFORE database to ensure access even if DB says 'user'
-    admin_emails = ['admin@nba.com', 'administrator@nba.com', 'jamescho@jumbosoft.com', 'jamescho']
-    if email.lower() in [e.lower() for e in admin_emails]:
-        return 'admin'
+    admin_role = _admin_role_for_email(email)
+    if admin_role:
+        return admin_role
 
-    # Check database for role
-    conn = get_connection()
-    if not conn:
-        return 'user'  # Default to user if can't check
-    
-    cursor = conn.cursor()
-    
     try:
+        # Check database for role
+        conn = get_connection()
+        if not conn:
+            return 'user'
+
+        cursor = conn.cursor()
         # Check Role and IsBanned columns
         cursor.execute(f'''
             SELECT "Role", "IsBanned" FROM "{DB_SCHEMA}"."Users"
@@ -220,6 +246,85 @@ def login_user(email: str, password: str) -> Tuple[bool, Optional[Dict], str]:
             return False, None, "Please verify your email before logging in"
         else:
             return False, None, f"Login failed: {error_msg}"
+
+def login_user(email: str, password: str) -> Tuple[bool, Optional[Dict], str]:
+    """Authenticate user login using Supabase."""
+    from db_config import get_connection, DB_SCHEMA
+
+    init_auth_session()
+
+    if not st.session_state.supabase_client:
+        return False, None, "Supabase client not initialized"
+
+    response = None
+    last_error = None
+
+    for attempt in range(2):
+        try:
+            response = st.session_state.supabase_client.auth.sign_in_with_password({
+                "email": email,
+                "password": password
+            })
+            break
+        except Exception as e:
+            last_error = e
+            if _is_timeout_error(e) and attempt == 0:
+                time.sleep(0.8)
+                continue
+            break
+
+    if response and response.user:
+        role = get_user_role(
+            response.user.id,
+            response.user.email,
+            user_metadata=response.user.user_metadata,
+        )
+
+        # Database role and ban checks are best-effort only.
+        try:
+            conn = get_connection()
+            if conn:
+                try:
+                    cursor = conn.cursor()
+                    cursor.execute(
+                        f'SELECT "IsBanned", "Role" FROM "{DB_SCHEMA}"."Users" WHERE "UserID" = %s',
+                        (response.user.id,),
+                    )
+                    result = cursor.fetchone()
+                    cursor.close()
+                    conn.close()
+
+                    if result and result[0]:
+                        st.session_state.supabase_client.auth.sign_out()
+                        st.session_state.authenticated = False
+                        st.session_state.user_data = None
+                        st.session_state.auth_checked_at = time.time()
+                        return False, None, "Account suspended. Please contact support."
+
+                    if result and result[1]:
+                        role = str(result[1]).lower()
+                except Exception:
+                    if conn:
+                        conn.close()
+        except Exception:
+            pass
+
+        st.session_state.authenticated = True
+        user_data = _build_user_data(response.user, role=role, session=response.session)
+        st.session_state.user_data = user_data
+        st.session_state.auth_checked_at = time.time()
+        return True, user_data, "Login successful!"
+
+    if last_error and _is_timeout_error(last_error) and check_authentication():
+        return True, st.session_state.user_data, "Login successful!"
+
+    error_msg = str(last_error) if last_error else "Login failed"
+    if "Invalid login credentials" in error_msg:
+        return False, None, "Invalid email or password"
+    if "Email not confirmed" in error_msg:
+        return False, None, "Please verify your email before logging in"
+    return False, None, f"Login failed: {error_msg}"
+
 
 def register_user(email: str, password: str, username: Optional[str] = None) -> Tuple[bool, str]:
     """Register a new user using Supabase"""
@@ -420,19 +525,21 @@ def update_user_status(user_id, role=None, is_banned=None):
 def get_page_visibility():
     """Get page visibility settings"""
     from db_config import get_connection, DB_SCHEMA
-    
-    conn = get_connection()
-    if not conn: return []
-    
+
     try:
+        conn = get_connection()
+        if not conn:
+            return {}
+
         cursor = conn.cursor()
         cursor.execute(f'SELECT "PageName", "IsVisible", "MinRole" FROM "{DB_SCHEMA}"."PageVisibility"')
         settings = cursor.fetchall()
         cursor.close()
         conn.close()
         return {row[0]: {'visible': row[1], 'min_role': row[2]} for row in settings}
-    except:
-        if conn: conn.close()
+    except Exception:
+        if 'conn' in locals() and conn:
+            conn.close()
         return {}
 
 def update_page_visibility(page_name, is_visible=None, min_role=None):
@@ -692,7 +799,3 @@ def get_user_stats(user_id: str):
     except Exception as e:
         conn.close()
         return None
-
-
-
-
