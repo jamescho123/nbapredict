@@ -1,92 +1,72 @@
 import streamlit as st
 import pandas as pd
-import psycopg2
 import plotly.express as px
+from db_config import get_connection, DB_SCHEMA
 
-DB_CONFIG = {
-    'host': 'localhost',
-    'database': 'James',
-    'user': 'postgres',
-    'password': 'jcjc1749'
-}
+
+def _read_sql(query, params=None):
+    conn = get_connection()
+    try:
+        return pd.read_sql(query, conn, params=params)
+    finally:
+        conn.close()
 
 def get_player_list():
-    conn = psycopg2.connect(**DB_CONFIG)
-    df = pd.read_sql('SELECT * FROM "NBA"."Players" ORDER BY "PlayerName"', conn)
-    conn.close()
-    return df
+    return _read_sql(f'SELECT * FROM "{DB_SCHEMA}"."Players" ORDER BY "PlayerName"')
 
 def get_player_stats(player_id):
-    conn = psycopg2.connect(**DB_CONFIG)
     query = '''
         SELECT mp.*, p.*
-        FROM "NBA"."MatchPlayer" mp
-        JOIN "NBA"."Players" p ON mp."PlayerID" = p."PlayerID"
+        FROM "{schema}"."MatchPlayer" mp
+        JOIN "{schema}"."Players" p ON mp."PlayerID" = p."PlayerID"
         WHERE mp."PlayerID" = %s
-    '''
-    df = pd.read_sql(query, conn, params=(player_id,))
-    conn.close()
-    return df
+    '''.format(schema=DB_SCHEMA)
+    return _read_sql(query, params=(player_id,))
 
 def get_team_list():
-    conn = psycopg2.connect(**DB_CONFIG)
-    df = pd.read_sql('SELECT * FROM "NBA"."Teams" ORDER BY "TeamName"', conn)
-    conn.close()
-    return df
+    return _read_sql(f'SELECT * FROM "{DB_SCHEMA}"."Teams" ORDER BY "TeamName"')
 
 def get_team_matches(team_id):
-    conn = psycopg2.connect(**DB_CONFIG)
     query = '''
         SELECT m.*, ht."TeamName" AS "HomeTeam", vt."TeamName" AS "VisitorTeam"
-        FROM "NBA"."Matches" m
-        JOIN "NBA"."Teams" ht ON m."HomeTeamID" = ht."TeamID"
-        JOIN "NBA"."Teams" vt ON m."VisitorTeamID" = vt."TeamID"
+        FROM "{schema}"."Matches" m
+        JOIN "{schema}"."Teams" ht ON m."HomeTeamID" = ht."TeamID"
+        JOIN "{schema}"."Teams" vt ON m."VisitorTeamID" = vt."TeamID"
         WHERE m."HomeTeamID" = %s OR m."VisitorTeamID" = %s
         ORDER BY m."Date" DESC
-    '''
-    df = pd.read_sql(query, conn, params=(team_id, team_id))
-    conn.close()
-    return df
+    '''.format(schema=DB_SCHEMA)
+    return _read_sql(query, params=(team_id, team_id))
 
 def get_match_by_id(match_id):
-    conn = psycopg2.connect(**DB_CONFIG)
     query = '''
         SELECT m.*, ht."TeamName" AS "HomeTeam", vt."TeamName" AS "VisitorTeam"
-        FROM "NBA"."Matches" m
-        JOIN "NBA"."Teams" ht ON m."HomeTeamID" = ht."TeamID"
-        JOIN "NBA"."Teams" vt ON m."VisitorTeamID" = vt."TeamID"
+        FROM "{schema}"."Matches" m
+        JOIN "{schema}"."Teams" ht ON m."HomeTeamID" = ht."TeamID"
+        JOIN "{schema}"."Teams" vt ON m."VisitorTeamID" = vt."TeamID"
         WHERE m."MatchID" = %s
-    '''
-    df = pd.read_sql(query, conn, params=(match_id,))
-    conn.close()
-    return df
+    '''.format(schema=DB_SCHEMA)
+    return _read_sql(query, params=(match_id,))
 
 def get_match_by_date(date):
-    conn = psycopg2.connect(**DB_CONFIG)
     query = '''
         SELECT m.*, ht."TeamName" AS "HomeTeam", vt."TeamName" AS "VisitorTeam"
-        FROM "NBA"."Matches" m
-        JOIN "NBA"."Teams" ht ON m."HomeTeamID" = ht."TeamID"
-        JOIN "NBA"."Teams" vt ON m."VisitorTeamID" = vt."TeamID"
+        FROM "{schema}"."Matches" m
+        JOIN "{schema}"."Teams" ht ON m."HomeTeamID" = ht."TeamID"
+        JOIN "{schema}"."Teams" vt ON m."VisitorTeamID" = vt."TeamID"
         WHERE m."Date" = %s
-    '''
-    df = pd.read_sql(query, conn, params=(date,))
-    conn.close()
-    return df
+    '''.format(schema=DB_SCHEMA)
+    return _read_sql(query, params=(date,))
 
 def get_match_player_stats(match_id):
-    conn = psycopg2.connect(**DB_CONFIG)
     query = '''
         SELECT mp.*, p."PlayerName", t."TeamName"
-        FROM "NBA"."MatchPlayer" mp
-        JOIN "NBA"."Players" p ON mp."PlayerID" = p."PlayerID"
-        JOIN "NBA"."TeamPlayer" tp ON mp."PlayerID" = tp."PlayerID"
-        JOIN "NBA"."Teams" t ON tp."TeamID" = t."TeamID"
+        FROM "{schema}"."MatchPlayer" mp
+        JOIN "{schema}"."Players" p ON mp."PlayerID" = p."PlayerID"
+        JOIN "{schema}"."TeamPlayer" tp ON mp."PlayerID" = tp."PlayerID"
+        JOIN "{schema}"."Teams" t ON tp."TeamID" = t."TeamID"
         WHERE mp."MatchID" = %s
-    '''
-    df = pd.read_sql(query, conn, params=(match_id,))
-    conn.close()
-    return df
+    '''.format(schema=DB_SCHEMA)
+    return _read_sql(query, params=(match_id,))
 
 def app():
     col1, col2 = st.columns([1, 5])
