@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "supabase-nba": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-supabase"
+      ],
+      "env": {
+        "SUPABASE_URL": "https://mxnpfsiyaqqwdcokukij.supabase.co",
+        "SUPABASE_SERVICE_ROLE_KEY": "GET_THIS_FROM_SUPABASE_DASHBOARD",
+        "SUPABASE_DB_PASSWORD": "VXUXqY9Uofg9ujoo"
+      }
+    }
+  }
+}
+

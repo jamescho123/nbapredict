@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NBA Predict | AI-Powered Basketball Analytics</title>
+    <meta name="description" content="The ultimate NBA prediction platform. Leverage AI, sentiment analysis, and deep statistics to forecast game outcomes with unprecedented accuracy.">
+    <link rel="stylesheet" href="landing.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <nav id="navbar">
+        <div class="container nav-content">
+            <div class="logo">
+                <i data-lucide="layout-dashboard" style="color: #C8102E;"></i>
+                NBA<span>PREDICT</span>
+            </div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#model">The Engine</a>
+                <a href="#about">About</a>
+                <a class="btn btn-primary" href="Home.py" onclick="alert('In a real app, this would link to your Streamlit dashboard!'); return false;">Launch App</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <h1>Predicting the <br><span>Game</span> Better.</h1>
+                <p>Advanced AI-powered analytics platform for NBA fans and professionals. Get the edge with real-time predictions and deep insights.</p>
+                <div class="hero-cta">
+                    <a href="#" class="btn btn-primary">Get Started Now</a>
+                    <a href="#" class="btn btn-outline">Watch Demo</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-card glass">
+                    <div class="mockup-ui">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div class="mockup-line" style="width: 40%;"></div>
+                            <div class="mockup-line" style="width: 20%; background: var(--accent-cyan);"></div>
+                        </div>
+                        <div class="mockup-chart">
+                            <svg width="100%" height="100%" viewBox="0 0 400 200" style="position: absolute; top:0; left:0;">
+                                <path d="M0 150 Q 50 120, 100 130 T 200 80 T 300 100 T 400 40" 
+                                      fill="none" stroke="var(--accent-cyan)" stroke-width="3" />
+                            </svg>
+                        </div>
+                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
+                            <div class="mockup-line" style="height: 40px; border-radius: 5px;"></div>
+                            <div class="mockup-line" style="height: 40px; border-radius: 5px;"></div>
+                            <div class="mockup-line" style="height: 40px; border-radius: 5px;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="stats-bar">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-value">92%</span>
+                    <span class="stat-label">Prediction Accuracy</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">10k+</span>
+                    <span class="stat-label">Games Analyzed</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">24/7</span>
+                    <span class="stat-label">Live Data Stream</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">AI</span>
+                    <span class="stat-label">Enhanced Engine</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <span class="section-tag">Powerful Features</span>
+            <h2 class="section-title">The Future of Sports Analytics</h2>
+            
+            <div class="features-grid">
+                <div class="feature-card glass">
+                    <div class="feature-icon">
+                        <i data-lucide="zap" style="color: #FFD700;"></i>
+                    </div>
+                    <h3>Hybrid Predictor</h3>
+                    <p>Our unique 4-layer model combines quantitative stats, qualitative news sentiment, and LLM reasoning for maximum accuracy.</p>
+                </div>
+                <div class="feature-card glass">
+                    <div class="feature-icon">
+                        <i data-lucide="message-square" style="color: var(--accent-cyan);"></i>
+                    </div>
+                    <h3>AI Chatbot</h3>
+                    <p>Natural language queries for any player, team, or game. Get instant answers fueled by our comprehensive database.</p>
+                </div>
+                <div class="feature-card glass">
+                    <div class="feature-icon">
+                        <i data-lucide="newspaper" style="color: var(--primary-red);"></i>
+                    </div>
+                    <h3>Real-time News</h3>
+                    <p>Automated news extraction and embedding. We analyze every headline to gauge team morale and strategic changes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="model" class="model-section">
+        <div class="container model-content">
+            <div class="model-text">
+                <span class="section-tag">Proprietary Technology</span>
+                <h2 style="font-size: 3rem; margin-bottom: 2rem;">The Hybrid Model Engine</h2>
+                <p style="color: var(--text-secondary); margin-bottom: 2rem;">Unlike traditional models that only look at scoreboard stats, NBA Predict listens to the pulse of the league. We process thousands of news articles daily using NLP to understand context that numbers alone miss.</p>
+                <ul style="list-style: none; display: flex; flex-direction: column; gap: 1rem;">
+                    <li><i data-lucide="check-circle" style="color: #4CAF50; margin-right: 10px; vertical-align: middle;"></i> Temporal Weighting for Recent Performance</li>
+                    <li><i data-lucide="check-circle" style="color: #4CAF50; margin-right: 10px; vertical-align: middle;"></i> Vector Search for Matchup Similarity</li>
+                    <li><i data-lucide="check-circle" style="color: #4CAF50; margin-right: 10px; vertical-align: middle;"></i> LLM Strategic Interpretation</li>
+                </ul>
+            </div>
+            <div class="model-visual">
+                <div class="mini-card glass">
+                    <h4>Step 1: Quant</h4>
+                    <p>Historical trends & advanced metrics calculation.</p>
+                </div>
+                <div class="mini-card glass">
+                    <h4>Step 2: Qual</h4>
+                    <p>Sentiment analysis of recent team headlines.</p>
+                </div>
+                <div class="mini-card glass">
+                    <h4>Step 3: Vector</h4>
+                    <p>Similarity search in game history database.</p>
+                </div>
+                <div class="mini-card glass">
+                    <h4>Step 4: LLM</h4>
+                    <p>Synthesizing all inputs into a final prediction.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="final-cta">
+        <div class="container">
+            <div class="cta-box">
+                <h2>Ready to elevate your game?</h2>
+                <p style="color: var(--text-secondary); margin-bottom: 3rem; font-size: 1.2rem;">Join the elite groups of analysts using data-driven insights.</p>
+                <a href="#" class="btn btn-primary" style="padding: 1.2rem 4rem; font-size: 1.2rem;">Launch Dashboard</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 NBA Predict Platform. Powered by Advanced AI.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Init Lucide Icons
+        lucide.createIcons();
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Simple parallax for hero
+        document.addEventListener('mousemove', (e) => {
+            const visual = document.querySelector('.hero-visual');
+            const x = (window.innerWidth - e.pageX * 2) / 100;
+            const y = (window.innerHeight - e.pageY * 2) / 100;
+            visual.style.transform = `translateX(${x}px) translateY(${y}px)`;
+        });
+    </script>
+</body>
+</html>

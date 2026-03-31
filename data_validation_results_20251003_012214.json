@@ -1,0 +1,377 @@
+{
+  "timestamp": "20251003_012214",
+  "validation_results": {
+    "schema": {
+      "existing_tables": [
+        "Teams",
+        "Players",
+        "News",
+        "Schedule",
+        "Matches"
+      ],
+      "missing_tables": []
+    },
+    "team_stats": {
+      "total_teams": 85,
+      "sample_data": [
+        [
+          1,
+          "Atlanta Hawks",
+          "1949-01-01",
+          "2024-01-01",
+          76,
+          6019,
+          "0.493",
+          49,
+          0,
+          1,
+          "0",
+          "12"
+        ],
+        [
+          2,
+          "Atlanta Hawks",
+          "1968-01-01",
+          "2024-01-01",
+          57,
+          4601,
+          "0.493",
+          36,
+          0,
+          0,
+          "0",
+          "6"
+        ],
+        [
+          3,
+          "St. Louis Hawks",
+          "1955-01-01",
+          "1967-01-01",
+          13,
+          1005,
+          "0.55",
+          12,
+          0,
+          1,
+          "0",
+          "6"
+        ],
+        [
+          4,
+          "Milwaukee Hawks",
+          "1951-01-01",
+          "1954-01-01",
+          4,
+          281,
+          "0.324",
+          0,
+          0,
+          0,
+          "0",
+          "0"
+        ],
+        [
+          5,
+          "Tri-Cities Blackhawks",
+          "1949-01-01",
+          "1950-01-01",
+          2,
+          132,
+          "0.409",
+          1,
+          0,
+          0,
+          "0",
+          "0"
+        ]
+      ],
+      "stats_retrieval": {}
+    },
+    "news": {
+      "total_articles": 7244,
+      "sample_news": [
+        [
+          1217,
+          "Lakers land Deandre Ayton in two-year deal after Blazers buyout",
+          "2025-07-03",
+          "Fresh off a contract buyout with\nPortland, free-agent center Deandre Ayton has agreed to a two-year\ndeal with the Los Angeles Lakers, which includes a player option\nfor the second season, sources reported via Shams Charania and\nESPN.\nAyton, the No.\u202f1 overall pick in\n2018, averaged 14.4 points, 10.2 rebounds, and 1.0 blocks over 40\ngames last season with Portland, shooting 56.6% from the field.\nBetween his remaining Blazers salary and the Lakers' deal, Ayton\nwill earn roughly $34 million for the upcoming season. He provides\nLos Angeles with a much-needed lob threat and inside presence to\nsupport the Luka Doncic-LeBron James tandem.\nLakers president Rob Pelinka and\nAyton\u2019s representatives, Nima Namakian and Bill Duffy, finalized\nthe contract quickly once Ayton cleared waivers \u2013 the Lakers had\nbeen heavily linked to him amid interest from teams like Indiana\nand Milwaukee. Analysts noted L.A. used their full mid-level\nexception (~$16.6M total) to secure him, capping the roster near\nthe second luxury-tax apron.\nDespite his efficient play over\nseven NBA seasons \u2013 averaging 16.4 points and 10.5 rebounds \u2013\nAyton's tenure in Portland was marred by locker room concerns,\nincluding tardiness, missed flights, and occasional outbursts. The\nBlazers opted to part ways amid a crowded frontcourt and behavioral\nred flags.\nANALYSIS:Ayton\nreplaces a glaring weakness at center and gives the Lakers an\ninterior boost, enhancing rim protection and pick-and-roll depth.\nThe contract maximizes available cap space, but will limit further\nmoves due to luxury tax constraints. While Ayton adds size, some\nanalysts question his intensity and consistency in LeBron-anchored\nrotations. But still, Ayton will be relied upon heavily as a\nstarting center in the league.\nThis move gives the Lakers the\ncenter they desperately needed, and may cap off their offseason\npriorities, but the true impact will hinge on Ayton\u2019s fit, effort,\nand chemistry next to L.A.'s stars."
+        ],
+        [
+          1219,
+          "Shai Gilgeous\u2011Alexander seals future with OKC after record $285M supermax",
+          "2025-07-02",
+          "The Oklahoma City Thunder have\nsecured their franchise cornerstone by signing reigning MVP and\nFinals MVP Shai Gilgeous\u2011Alexander to a four-year, $285.4 million\nsupermax extension, according to ESPN\u2019s Shams Charania.\nThis new supermax is the largest\nannual NBA contract in history at approximately $71.35 million per\nseason. The deal runs through the 2030-31 season, anchoring\nOklahoma City\u2019s title-contending core.\nSGA\u2019s 2024\u201325 campaign was\nhistoric. He led the league with 32.7 points per game, added 6.4\nassists, 5.0 rebounds, and 1.7 steals, earning both regular-season\nand Finals MVP honors while guiding the Thunder to their first NBA\nchampionship in Oklahoma City. In the Finals, he averaged nearly 30\npoints per game, solidifying his ascent into elite league company\nalongside legends like Jordan, O\u2019Neal, and Abdul\u2011Jabbar.\nThunder GM Sam Presti called the\nmove a decisive step in sustaining the franchise's momentum: \u201cHe\u2019s\ngotten better every single year,\u201d Presti said, acknowledging the\nplayer\u2019s cultural and competitive impact. The structure allows OKC\nto retain financial flexibility, keeping SGA locked in at historic\nvalue while preserving space to build a supporting cast around\nhim.\nANALYSIS: This historical\nprecedent allows SGA to join an exclusive group with Michael\nJordan, Shaquille O\u2019Neal, and Kareem Abdul\u2011Jabbar as the only\nplayers to win MVP, Finals MVP, and a scoring title in a single\nseason. With this extension, the Thunder secure their generational\ntalent at least through his age-33 season, ensuring continuity\nafter their breakthrough title run. Despite the record-setting\ndeal, OKC remains positioned to leverage its youth, draft assets,\nand cap flexibility for future moves.\nThis supermax extension\nsolidifies Shai Gilgeous\u2011Alexander\u2019s status as the face of the\nThunder for the next half-decade. At the peak of his powers, he\nensures Oklahoma City\u2019s championship aspirations remain\nfront-and-center \u2013 and the Thunder\u2019s window for dominance stays\nwide open."
+        ],
+        [
+          1218,
+          "Bucks sign Myles Turner, waive Damian Lillard in bold offseason moves",
+          "2025-07-02",
+          "The Milwaukee Bucks have made\nheadlines in this year\u2019s NBA free agency after signing center Myles\nTurner to a four-year, $107 million deal, according to ESPN\u2019s Shams\nCharania.\nTurner will be filling the void\nleft by Brook Lopez (after Lopez signed with the Clippers) to\nstrengthen the Bucks\u2019 frontcourt presence. To accommodate the move,\nthe Bucks made the surprising decision to waive nine-time All-Star\nDamian Lillard, stretching his remaining $112.6 million over five\nyears under the NBA\u2019s stretch provision.\nTurner, who averaged 14.1\npoints, 6.8 rebounds, and two blocks per game last year with the\nPacers, brings both shot-blocking and floor-spacing to Milwaukee.\nThe deal includes a player option in the final season, offering\nflexibility to both parties.\nMeanwhile, Portland\u2019s loss of\nits franchise guard marks a major salary-cap shift for the Bucks,\npositioning Turner as a focal point for their postseason\ncore.\nWaiving Lillard, who is\nrecovering from a ruptured Achilles, frees up immediate cap space\nand salary flexibility.\nANALYSIS: Milwaukee has started\nretooling once again around their superstar, and adding Turner\nenhances interior defense and shooting. This is an ideal complement\nto Antetokounmpo\u2019s skill set. For Lillard\u2019s future, now being a\nfree agent amidst recovery, he will receive his full salary over\nfive years, but remains searchable by contenders once\nhealthy.\nThe Bucks have clearly\nrecalibrated, reshaping their roster with swift and bold moves.\nWhile laying groundwork for continued contention, these decisions\nalso signal a high-stakes gamble on internal cohesion and strategic\ndirection moving forward."
+        ],
+        [
+          1220,
+          "Knicks sign Jordan Clarkson, Guerschon Yabusele to bolster bench",
+          "2025-07-02",
+          "The New York Knicks took an\nearly and strategic step in free agency by signing Jordan Clarkson\nand Guerschon Yabusele, as reported by ESPN\u2019s Shams\nCharania.\nThe Knicks aim to strengthen a\nbench that was a liability during their Eastern Conference Finals\nrun. Clarkson, a 2021 Sixth Man of the Year, is set to join on a\nveteran's minimum contract once his Jazz buyout clears. Known for\ndelivering instant scoring off the bench, Clarkson gives the Knicks\na trusted offensive spark when Jalen Brunson rests or the offense\nstalls.\nOn the frontcourt side, New York\ninked Guerschon Yabusele to a two-year, $12 million deal using\ntheir taxpayer mid-level exception. The 6'8\" versatile forward\naveraged 11.0 points, 5.6 rebounds, and 38% from deep for\nPhiladelphia last year, revitalizing his NBA career after a\nstandout summer with Team France at the Olympics. Yabusele brings\nphysicality, floor-spacing, and grit \u2013 areas the Knicks sorely\nneeded to reinforce.\nANALYSIS: These additions\nimmediately address New York's most significant roster gaps: bench\nscoring and depth in their rotation. Clarkson and Yabusele slot\ninto a blossoming rotation alongside established pieces like\nMitchell Robinson and Miles McBride, giving the Knicks a stronger\nnine-man core.\nHowever, the signings push the\nKnicks up to the \u201csecond apron\u201d of the salary cap, potentially\nnecessitating subtle moves to maintain flexibility.\nMoving forward, the Knicks are\nexpected to evaluate minor trades or minimum-aiming signings to\nsolidify their roster while avoiding harsh financial limits.\nMeanwhile, the head coach hunt continues, although the front office\nhas made it clear they\u2019re building a deeper, more reliable team\naround Brunson, Towns, and company."
+        ],
+        [
+          1221,
+          "Rockets, Nuggets, Hawks retool rosters with major offseason shakeups",
+          "2025-07-01",
+          "Three contending NBA teams for\nnext season \u2013 the Houston Rockets, Denver Nuggets, and Atlanta\nHawks \u2013 have each made significant roster moves this\noffseason.\nIn separate deals reported by\nESPN\u2019s NBA insider Shams Charania, all three teams are signaling\naggressive shifts in direction ahead of the 2025-26 NBA\nseason.\nThe Houston Rockets are going\nall\u2011in this summer. After acquiring Kevin Durant in a blockbuster\ntrade with the Suns, Houston shored up its core by re-signing\nFred\u202fVanVleet on a 2\u2011year, $50M deal (with a player option),\nextending Steven Adams, and re-upping coach Ime Udoka. Now in free\nagency, they have landed veteran 3\u2011and\u2011D forward Dorian\nFinney\u2011Smith (4 years, $53M) to improve perimeter defense along\nwith his reliable floor-spacing skills. Then they signed Clint\nCapela for more depth at their center position, and with $14M in\ncap space remaining, Houston is finalizing its championship\nroster.\nMeanwhile, the Denver Nuggets\naddressed frontcourt depth by trading for center Jonas Valan\u010di\u016bnas\nfrom Sacramento in a straight-up swap for Dario Saric. Valan\u010di\u016bnas,\naveraging 10.4 points and 7.7 rebounds last season, will provide\nNikola Joki\u0107 steady backup minutes and additional interior\ntoughness. Despite moving Saric\u2019s cap hit, Denver stays under the\nfirst tax apron, preserving financial flexibility.\nHowever, the biggest story of\nDenver\u2019s offseason has been acquiring Cam Johnson, who was traded\nin for Michael Porter Jr. and a future first-round pick. Moreover,\nthe Nuggets have brought back former Nugget champion in 2023, Bruce\nBrown, on a minimum deal.\nThe Atlanta Hawks focused on\nspacing and backcourt versatility. They completed a sign\u2011and\u2011trade\nfor wing Nickeil Alexander\u2011Walker (4 years, $62M, with player\noptions and Trae Young playing a recruit role), and signed\nsharpshooter Luke Kennard to a 1\u2011year, $11M deal to boost 3\u2011point\nrange off the bench. These moves aim to complement Trae Young while\nimproving perimeter defense and shooting.\nANALYSIS: For the Rockets, they\nhave dramatically elevated their ceiling, as Durant adds star\npower, VanVleet brings court leadership, and Finney-Smith and\nCapela shore up their defense. The franchise is firmly in win-now\nmode. The Nuggets have secured Valan\u010di\u016bnas to add size behind\nJoki\u0107, and then Johnson and Brown are strengthening their bench\nrotation and sustaining their championship window. For the Hawks,\nthese perimeter additions in Alexander-Walker and Kennard mean they\nprioritize spacing and two-way flexibility after also trading for\nKristaps Porzingis days earlier. This is signaling readiness to\nsupport Young in a deeper push.\n\u2013 \u2013 \u2013\nThese strategic moves reflect\neach team\u2019s goals: Houston\u2019s aggressive contender build, Denver\u2019s\nchampionship continuity, and Atlanta\u2019s roster refinement. The\nsummer\u2019s first wave sets a sharp tone \u2013 expect these teams to\ncommand attention come next season."
+        ]
+      ],
+      "retrieval_tests": {
+        "Boston Celtics": {
+          "regular_news_count": 5,
+          "regular_news": [
+            {
+              "NewsID": 1230,
+              "Title": "Kristaps Porzingis traded to Hawks in strategic three-team deal",
+              "Content": "In a major three-team\ntransaction, the Boston Celtics have sent 7-foot-2 former All\u2011Star\nKristaps Porzingis to the Atlanta Hawks, according to ESPN\u2019s Shams\nCharania.\nIt is a three-team trade and the\nBrooklyn Nets are also involved. This move underscores Boston's\naggressive salary-shedding strategy following key injuries and a\nrecent Finals win in 2024.\nPorzingis, 29, averaged\n19.5\u202fpts, 6.8\u202freb, 1.5\u202fblk in just 42 games last season and holds\nthe potential to stretch the floor and protect the rim. With him,\nthe Hawks acquire size and shooting necessary for their roster to\nflourish. Atlanta also adds a second-rounder and addresses its need\nfor a frontcourt upgrade alongside Trae Young and Onyeka\nOkongwu.\nIn return, Boston receives\nGeorges Niang and a second-round pick, as the Celtics reduce tax\nburden clearing approximately $180\u202fmillion in luxury-tax\nliabilities and dropping below the second salary-cap apron \u2013 a\nrapid teardown post-Tatum injury, who suffered a tear to his right\nachilles in their second-round loss to New York.\nBrooklyn lands guard/forward\nTerance Mann and the Hawks' No.\u202f22 pick, boosting their 2025 draft\nassets to five first-round selections and utilizing cap space for\nmaximum flexibility. The Nets cashed in draft capital with this\ntrade as they now own 5 first round picks in this year\u2019s\ndraft.\nThe deal is expected to become\nofficial on July 6 due to salary-cap timing rules.\nANALYSIS: For the Hawks, this is\na high-risk, high-reward move as Porzingis brings elite shooting\nand defense, though his health remains a concern. For the Celtics,\nthe franchise gains cap flexibility to rebuild or pursue new core\npieces after losing both Holiday and Porzingis. For the Nets, they\ncontinue accumulating draft picks and cap space, emphasizing\nlong-term strategic positioning.\nAtlanta is betting big on\nPorzingis upside to elevate its playoff prospects; Boston is\nresetting financially; and Brooklyn is poised for a draft-fueled\noffseason build. This is a monumental three-team shift that's\nreshaping Eastern Conference power dynamics.",
+              "Date": "2025-06-25"
+            },
+            {
+              "NewsID": 1232,
+              "Title": "Celtics trade Jrue Holiday to the Blazers for Anfernee Simons",
+              "Content": "The Portland Trail Blazers have\nacquired veteran guard Jrue Holiday from the Boston Celtics in\nexchange for Anfernee Simons and two second-round draft picks,\nsources told ESPN\u2019s Shams Charania.\nHoliday, a two-time NBA champion\nand six\u2011time All\u2011Defensive Team honoree, averaged 11.1 points, 4.3\nrebounds and 3.9 assists last season with Boston, while shooting a\ncareer\u2011high 42.9% from deep. At 35, he returns to a Blazers team\nseeking veteran leadership and defensive stability on the guard and\nwing spots.\nPortland had originally traded\nHoliday in the blockbuster Damian Lillard deal of 2023, sending him\nstraight to Boston. Now he\u2019s back, part of a push to mentor the\nBlazers\u2019 younger core, particularly young guards Scoot Henderson\nand Shaedon Sharpe, to try and elevate their competitiveness in the\nWestern Conference.\nSimons, 26, brings offensive\nfirepower to Boston, where he\u2019ll slot into a 3\u2011point\u2011heavy\nrotation. He averaged 19.3 points and 4.8 assists over 32 minutes\nper game last season. Boston also received two future second\u2011round\npicks as part of the deal.\nAccording to ESPN\u2019s Bobby Marks,\nthe move shaves approximately $40\u202fmillion in luxury\u2011tax burden from\nBoston\u2019s books and moves them roughly $18\u202fM below the second apron,\nenhancing their financial flexibility.\nANALYSIS: Portland expects\nHoliday to fortify its defense and locker\u2011room culture \u2013 as the\nteam eyes a return to playoff contention, his r\u00e9sum\u00e9 and veteran\npresence could prove instrumental. His presence could prove to be\nvital for Henderson and Sharpe\u2019s development as they work their way\nto be stars in the league. Holiday can teach both young guys the\ndefensive acumen and the championship pedigree needed to succeed in\nthe NBA.\nFor Boston, acquiring Simons\nmeans a little bit of cap relief as they float around the second\napron of the luxury tax. The 6-foot-5 Simons is also perfect for\ntheir system with his three-point shooting and rim pressure both\nessential elements of their offensive attack.\nThis move marks a strategic\nshift for both franchises: Portland prioritizes veteran leadership\nand defensive toughness, while Boston levers flexibility and\nyounger talent to navigate an evolving roster landscape. Overall,\nthis looks like to be a win-win trade for both teams as they both\ngot what they wanted and addressed a specific need.",
+              "Date": "2025-06-24"
+            }
+          ],
+          "time_weighted_count": 0,
+          "time_weighted_news": []
+        },
+        "Los Angeles Lakers": {
+          "regular_news_count": 5,
+          "regular_news": [
+            {
+              "NewsID": 1217,
+              "Title": "Lakers land Deandre Ayton in two-year deal after Blazers buyout",
+              "Content": "Fresh off a contract buyout with\nPortland, free-agent center Deandre Ayton has agreed to a two-year\ndeal with the Los Angeles Lakers, which includes a player option\nfor the second season, sources reported via Shams Charania and\nESPN.\nAyton, the No.\u202f1 overall pick in\n2018, averaged 14.4 points, 10.2 rebounds, and 1.0 blocks over 40\ngames last season with Portland, shooting 56.6% from the field.\nBetween his remaining Blazers salary and the Lakers' deal, Ayton\nwill earn roughly $34 million for the upcoming season. He provides\nLos Angeles with a much-needed lob threat and inside presence to\nsupport the Luka Doncic-LeBron James tandem.\nLakers president Rob Pelinka and\nAyton\u2019s representatives, Nima Namakian and Bill Duffy, finalized\nthe contract quickly once Ayton cleared waivers \u2013 the Lakers had\nbeen heavily linked to him amid interest from teams like Indiana\nand Milwaukee. Analysts noted L.A. used their full mid-level\nexception (~$16.6M total) to secure him, capping the roster near\nthe second luxury-tax apron.\nDespite his efficient play over\nseven NBA seasons \u2013 averaging 16.4 points and 10.5 rebounds \u2013\nAyton's tenure in Portland was marred by locker room concerns,\nincluding tardiness, missed flights, and occasional outbursts. The\nBlazers opted to part ways amid a crowded frontcourt and behavioral\nred flags.\nANALYSIS:Ayton\nreplaces a glaring weakness at center and gives the Lakers an\ninterior boost, enhancing rim protection and pick-and-roll depth.\nThe contract maximizes available cap space, but will limit further\nmoves due to luxury tax constraints. While Ayton adds size, some\nanalysts question his intensity and consistency in LeBron-anchored\nrotations. But still, Ayton will be relied upon heavily as a\nstarting center in the league.\nThis move gives the Lakers the\ncenter they desperately needed, and may cap off their offseason\npriorities, but the true impact will hinge on Ayton\u2019s fit, effort,\nand chemistry next to L.A.'s stars.",
+              "Date": "2025-07-03"
+            },
+            {
+              "NewsID": 1223,
+              "Title": "LeBron James opts in on contract with Lakers for record-breaking 23rd NBA season",
+              "Content": "LeBron James has exercised his\n$52.6\u202fmillion player option to return to the Los Angeles Lakers for\nthe 2025\u201326 season, as reported by ESPN\u2019s Shams\nCharania.\nThis solidifies James\u2019 place as\nthe first player in NBA history to enter a 23rd season, breaking a\ntie with Vince Carter for most all-time.\nAt 40 years old, James remains\nat the top of his game, averaging 24.4 points, 7.8 rebounds, and\n8.2 assists over 70 games in 2024\u201325. While this move guarantees a\nplace in the record books, he's quick to clarify that his goal goes\nbeyond longevity: \u201cLeBron wants to compete for a championship,\u201d his\nagent Rich Paul of Klutch Sports told ESPN and Charania.\nDespite the Lakers emerging from\na blockbuster trade that brought Luka Doncic to LA, James is\nwaiting to see how the front office shapes the roster. He remains\noptimistic about contending while acknowledging the team's\ntrajectory: \u201cHe knows the Lakers are building for the future\u2026 but\nhe values a realistic chance of winning it all.\u201d\nFinancially, the Lakers will\ncarry James\u2019s $52.6 million into the books, pushing them\napproximately $21 million above the salary cap \u2013 but still below\nthe luxury-tax apron, preserving valuable negotiating and cap\nflexibility. Rob Pelinka and ownership now face the task of\nleveraging this space to strengthen the roster around James and\nDoncic.\nANALYSIS: With his 23rd season\nincoming, James will surpass Carter\u2019s record and inch closer to\nRobert Parish's games-played mark. His decision underscores a final\npush for another title, not merely a ceremonial farewell. With this\nstrategic implication, the Lakers must address roster holes before\ncamp, and James's return raises expectations for a possible title\nrun next season.\nLooking ahead, James aims to\nmanage his recovery, recently spraining a knee ligament, but has\ncommitted to returning healthy for training camp this fall. His\nfinal decision on whether to play or not beyond 2025-26 will likely\ndepend on how competitive the Lakers shape up this\nyear.\nLeBron\u2019s choice ensures one more\nseason of greatness and ignites a defining offseason for Los\nAngeles, whether they build around his enduring greatness or begin\nplanning for a post-LeBron era.",
+              "Date": "2025-06-30"
+            }
+          ],
+          "time_weighted_count": 0,
+          "time_weighted_news": []
+        }
+      },
+      "date_distribution": [
+        [
+          "2025-07-01 00:00:00+08:00",
+          5
+        ],
+        [
+          "2025-06-01 00:00:00+08:00",
+          33
+        ],
+        [
+          "2025-05-01 00:00:00+08:00",
+          23
+        ],
+        [
+          "2025-04-01 00:00:00+08:00",
+          26
+        ],
+        [
+          "2025-03-01 00:00:00+08:00",
+          16
+        ],
+        [
+          "2025-02-01 00:00:00+08:00",
+          45
+        ]
+      ]
+    },
+    "players": {
+      "total_players": 50,
+      "sample_data": [
+        [
+          58875,
+          "PreciousAchiuwa",
+          5,
+          "F",
+          80,
+          243,
+          "Memphis",
+          "Nigeria"
+        ],
+        [
+          58876,
+          "StevenAdams",
+          12,
+          "C",
+          83,
+          265,
+          "Pittsburgh",
+          "New Zealand"
+        ],
+        [
+          58877,
+          "BamAdebayo",
+          13,
+          "C-F",
+          81,
+          255,
+          "Kentucky",
+          "USA"
+        ],
+        [
+          58878,
+          "OchaiAgbaji",
+          30,
+          "G",
+          77,
+          215,
+          "Kansas",
+          "USA"
+        ],
+        [
+          58879,
+          "SantiAldama",
+          7,
+          "F-C",
+          84,
+          215,
+          "Loyola-Maryland",
+          "Spain"
+        ]
+      ],
+      "retrieval_tests": {}
+    },
+    "schedule": {
+      "total_games": 308,
+      "upcoming_games": [
+        [
+          "2025-10-21",
+          "Oklahoma City Thunder",
+          "Houston Rockets",
+          "20:00:00",
+          "Paycom Center"
+        ],
+        [
+          "2025-10-21",
+          "Los Angeles Lakers",
+          "Golden State Warriors",
+          "22:30:00",
+          "Crypto.com Arena"
+        ],
+        [
+          "2025-10-22",
+          "Charlotte Hornets",
+          "Brooklyn Nets",
+          "19:00:00",
+          "Spectrum Center"
+        ],
+        [
+          "2025-10-22",
+          "Orlando Magic",
+          "Miami Heat",
+          "19:00:00",
+          "Amway Center"
+        ],
+        [
+          "2025-10-22",
+          "New York Knicks",
+          "Cleveland Cavaliers",
+          "19:00:00",
+          "Madison Square Garden"
+        ],
+        [
+          "2025-10-22",
+          "Atlanta Hawks",
+          "Toronto Raptors",
+          "19:30:00",
+          "State Farm Arena"
+        ],
+        [
+          "2025-10-22",
+          "Boston Celtics",
+          "Philadelphia 76ers",
+          "19:30:00",
+          "TD Garden"
+        ],
+        [
+          "2025-10-22",
+          "Memphis Grizzlies",
+          "New Orleans Pelicans",
+          "20:00:00",
+          "FedExForum"
+        ],
+        [
+          "2025-10-22",
+          "Chicago Bulls",
+          "Detroit Pistons",
+          "20:00:00",
+          "United Center"
+        ],
+        [
+          "2025-10-22",
+          "Milwaukee Bucks",
+          "Washington Wizards",
+          "20:00:00",
+          "Fiserv Forum"
+        ]
+      ],
+      "date_range": [
+        "2025-10-21",
+        "2026-04-12"
+      ],
+      "team_distribution": [
+        [
+          "Sacramento Kings",
+          16
+        ],
+        [
+          "Utah Jazz",
+          16
+        ],
+        [
+          "Chicago Bulls",
+          16
+        ],
+        [
+          "Oklahoma City Thunder",
+          14
+        ],
+        [
+          "Charlotte Hornets",
+          13
+        ]
+      ]
+    },
+    "consistency": {
+      "team_consistency": {
+        "schedule_teams": 30,
+        "teams_table_teams": 62,
+        "common_teams": 30
+      },
+      "date_stats": [
+        308,
+        57,
+        "2025-10-21",
+        "2026-04-12"
+      ],
+      "duplicates": 0,
+      "issues": [
+        "Teams in Teams table but not in schedule: ['New Orleans Jazz', 'Syracuse Nationals', 'Baltimore Bullets', 'Buffalo Braves', 'Washington Bullets', 'Tri-Cities Blackhawks', 'Rochester Royals', 'Capital Bullets', 'Denver Rockets', 'St. Louis Hawks', 'NO/Ok. City Hornets', 'New York Nets', 'Texas Chaparrals', 'Cincinnati Royals', 'Seattle SuperSonics', 'Chicago Zephyrs', 'San Diego Rockets', 'New Orleans Hornets', 'Vancouver Grizzlies', 'New Jersey Nets', 'Fort Wayne Pistons', 'Charlotte Bobcats', 'New Jersey Americans', 'Milwaukee Hawks', 'Dallas Chaparrals', 'Kansas City Kings', 'San Diego Clippers', 'Philadelphia Warriors', 'Kansas City-Omaha Kings', 'San Francisco Warriors', 'Minneapolis Lakers', 'Chicago Packers']"
+      ]
+    }
+  },
+  "errors": [
+    "Data flow test error for Boston Celtics vs Los Angeles Lakers: name 'get_team_context_data' is not defined",
+    "Data flow test error for Los Angeles Lakers vs Boston Celtics: name 'get_team_context_data' is not defined"
+  ],
+  "warnings": [
+    "No stats found for Boston Celtics",
+    "No stats found for Los Angeles Lakers",
+    "No stats found for Golden State Warriors",
+    "No players found for Boston Celtics",
+    "No players found for Los Angeles Lakers"
+  ]
+}

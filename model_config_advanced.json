@@ -1,0 +1,349 @@
+{
+  "version": "2.0",
+  "last_updated": "2025-11-05T21:41:03.688217",
+  "strength_weights": {
+    "win_percentage": 0.25,
+    "point_differential": 0.2,
+    "offensive_efficiency": 0.15,
+    "defensive_efficiency": 0.15,
+    "recent_form": 0.15,
+    "news_sentiment": 0.1
+  },
+  "home_advantage": {
+    "base_advantage": 0.1,
+    "venue_specific": {
+      "altitude": 0.02,
+      "crowd_intensity": 0.01,
+      "travel_distance": 0.01
+    },
+    "time_of_season": {
+      "early_season": 0.08,
+      "mid_season": 0.1,
+      "late_season": 0.12,
+      "playoffs": 0.15
+    },
+    "back_to_back": {
+      "home_b2b": -0.03,
+      "away_b2b": -0.05
+    }
+  },
+  "recent_form": {
+    "windows": {
+      "last_3_games": 0.4,
+      "last_5_games": 0.3,
+      "last_10_games": 0.2,
+      "last_15_games": 0.1
+    },
+    "time_decay": {
+      "enabled": true,
+      "decay_rate": 0.95,
+      "max_days": 30
+    },
+    "streak_bonus": {
+      "win_streak_3": 0.02,
+      "win_streak_5": 0.04,
+      "win_streak_10": 0.06,
+      "loss_streak_penalty": -0.02
+    }
+  },
+  "head_to_head": {
+    "base_weight": 0.15,
+    "recent_h2h": {
+      "last_1_meeting": 0.5,
+      "last_3_meetings": 0.3,
+      "last_5_meetings": 0.2
+    },
+    "season_h2h": {
+      "current_season": 0.6,
+      "last_season": 0.25,
+      "two_seasons_ago": 0.15
+    },
+    "blowout_discount": {
+      "enabled": true,
+      "threshold": 20,
+      "discount_factor": 0.5
+    }
+  },
+  "rest_schedule": {
+    "rest_days_impact": {
+      "0_days": -0.08,
+      "1_day": -0.03,
+      "2_days": 0.0,
+      "3_days": 0.02,
+      "4_plus_days": 0.03,
+      "7_plus_days": -0.01
+    },
+    "travel_fatigue": {
+      "short_distance": 0.0,
+      "medium_distance": -0.01,
+      "long_distance": -0.02,
+      "coast_to_coast": -0.03,
+      "time_zone_penalty": -0.01
+    },
+    "schedule_difficulty": {
+      "games_in_7_days": {
+        "2_games": 0.0,
+        "3_games": -0.01,
+        "4_games": -0.03,
+        "5_plus_games": -0.05
+      },
+      "road_trip": {
+        "game_1": 0.0,
+        "game_2": -0.01,
+        "game_3": -0.02,
+        "game_4_plus": -0.04
+      }
+    }
+  },
+  "injury_impact": {
+    "star_player": {
+      "mvp_candidate": -0.15,
+      "all_star": -0.1,
+      "starter": -0.05,
+      "key_rotation": -0.02,
+      "role_player": -0.01
+    },
+    "multiple_injuries": {
+      "2_starters": -0.12,
+      "3_starters": -0.18,
+      "4_plus_starters": -0.25
+    },
+    "injury_duration": {
+      "questionable": -0.02,
+      "out_1_game": -0.05,
+      "week_to_week": -0.03,
+      "long_term": -0.08
+    },
+    "return_from_injury": {
+      "first_game_back": -0.03,
+      "second_game_back": -0.01,
+      "third_plus_game": 0.0
+    }
+  },
+  "news_sentiment": {
+    "weight_by_recency": {
+      "today": 1.0,
+      "yesterday": 0.9,
+      "2_days_ago": 0.75,
+      "3_days_ago": 0.6,
+      "4_7_days_ago": 0.4,
+      "8_14_days_ago": 0.2,
+      "15_plus_days": 0.1
+    },
+    "sentiment_multiplier": {
+      "very_positive": 0.1,
+      "positive": 0.05,
+      "neutral": 0.0,
+      "negative": -0.05,
+      "very_negative": -0.1
+    },
+    "topic_weights": {
+      "injuries": 1.5,
+      "trades": 1.3,
+      "coaching": 1.2,
+      "chemistry": 1.1,
+      "general_performance": 1.0
+    },
+    "source_reliability": {
+      "official": 1.0,
+      "major_media": 0.9,
+      "beat_writers": 0.8,
+      "social_media": 0.5,
+      "rumors": 0.3
+    }
+  },
+  "offensive_metrics": {
+    "pace_adjustment": {
+      "enabled": true,
+      "fast_pace_bonus": 0.02,
+      "slow_pace_penalty": -0.01
+    },
+    "scoring_metrics": {
+      "points_per_game": 0.3,
+      "true_shooting": 0.25,
+      "effective_fg": 0.2,
+      "three_point_rate": 0.15,
+      "free_throw_rate": 0.1
+    },
+    "ball_movement": {
+      "assists_per_game": 0.4,
+      "assist_to_turnover": 0.35,
+      "turnovers_per_game": 0.25
+    }
+  },
+  "defensive_metrics": {
+    "opponent_scoring": {
+      "opp_points_per_game": 0.35,
+      "opp_fg_percentage": 0.3,
+      "opp_three_point": 0.2,
+      "opp_free_throws": 0.15
+    },
+    "defensive_activity": {
+      "blocks_per_game": 0.25,
+      "steals_per_game": 0.3,
+      "defensive_rebounds": 0.25,
+      "fouls_per_game": 0.2
+    }
+  },
+  "situational_factors": {
+    "time_of_season": {
+      "october": 0.85,
+      "november": 0.9,
+      "december": 0.95,
+      "january_february": 1.0,
+      "march": 1.05,
+      "april": 1.1
+    },
+    "game_importance": {
+      "regular_season": 1.0,
+      "rivalry": 1.05,
+      "division": 1.08,
+      "conference": 1.03,
+      "playoff_race": 1.15,
+      "playoffs": 1.25
+    },
+    "special_circumstances": {
+      "revenge_game": 0.02,
+      "coach_return": 0.01,
+      "player_return": 0.02,
+      "season_opener": -0.02,
+      "post_all_star": 0.0,
+      "day_game": -0.01
+    }
+  },
+  "confidence_factors": {
+    "base_confidence": {
+      "low_data_quality": {
+        "base": 0.5,
+        "data_availability": 0.2,
+        "sample_size": 0.15,
+        "head_to_head": 0.1,
+        "recency": 0.05
+      },
+      "high_data_quality": {
+        "base": 0.4,
+        "model_agreement": 0.25,
+        "data_availability": 0.15,
+        "sample_size": 0.1,
+        "historical_accuracy": 0.1
+      }
+    },
+    "prediction_strength": {
+      "very_strong": {
+        "min_confidence": 0.75,
+        "max_confidence": 0.95
+      },
+      "strong": {
+        "min_confidence": 0.65,
+        "max_confidence": 0.85
+      },
+      "moderate": {
+        "min_confidence": 0.55,
+        "max_confidence": 0.75
+      },
+      "weak": {
+        "min_confidence": 0.45,
+        "max_confidence": 0.65
+      }
+    },
+    "uncertainty_factors": {
+      "injury_uncertainty": -0.1,
+      "new_roster": -0.08,
+      "new_coach": -0.05,
+      "long_layoff": -0.05,
+      "playoff_pressure": -0.03
+    }
+  },
+  "score_prediction": {
+    "base_scoring": {
+      "league_average": 112.0,
+      "std_deviation": 12.0
+    },
+    "pace_adjustment": {
+      "enabled": true,
+      "fast_pace_multiplier": 1.08,
+      "slow_pace_multiplier": 0.92
+    },
+    "home_court_points": 3.0,
+    "matchup_adjustment": {
+      "strong_offense_vs_weak_defense": 5.0,
+      "strong_defense_vs_weak_offense": -5.0,
+      "pace_mismatch": 3.0
+    },
+    "variance": {
+      "typical_game": 8.0,
+      "high_variance": 12.0,
+      "low_variance": 5.0
+    }
+  },
+  "gambling_metrics": {
+    "spread_confidence": {
+      "high": 0.7,
+      "medium": 0.6,
+      "low": 0.5
+    },
+    "over_under_factors": {
+      "pace_weight": 0.35,
+      "defense_weight": 0.3,
+      "recent_scoring": 0.2,
+      "weather_indoor": 0.0,
+      "motivation": 0.15
+    },
+    "quarter_predictions": {
+      "first_quarter": {
+        "feeling_out": 0.9,
+        "energy_high": 1.0
+      },
+      "second_quarter": {
+        "rotation_heavy": 0.95,
+        "adjustment_period": 1.0
+      },
+      "third_quarter": {
+        "halftime_adjustments": 1.05,
+        "renewed_energy": 1.02
+      },
+      "fourth_quarter": {
+        "close_game_variance": 1.1,
+        "blowout_discount": 0.8,
+        "clutch_factor": 1.05
+      }
+    }
+  },
+  "calibration": {
+    "enabled": true,
+    "smoothing_factor": 0.75,
+    "min_confidence": 0.45,
+    "max_confidence": 0.95,
+    "sample_size_threshold": 20,
+    "recalibration_frequency": "weekly"
+  },
+  "advanced_features": {
+    "momentum_tracking": {
+      "enabled": true,
+      "lookback_games": 5,
+      "weight": 0.05
+    },
+    "clutch_performance": {
+      "enabled": true,
+      "last_5_minutes": 0.1,
+      "overtime_record": 0.05
+    },
+    "coaching_impact": {
+      "enabled": true,
+      "ato_plays": 0.03,
+      "adjustment_rating": 0.04
+    },
+    "player_matchups": {
+      "enabled": false,
+      "star_vs_star": 0.05,
+      "mismatch_advantage": 0.03
+    }
+  },
+  "ensemble_weights": {
+    "statistical_model": 0.35,
+    "form_based_model": 0.25,
+    "matchup_model": 0.2,
+    "sentiment_model": 0.1,
+    "hybrid_model": 0.1
+  }
+}

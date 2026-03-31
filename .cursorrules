@@ -1,0 +1,67 @@
+# Cursor Rules for NBA Predict Project
+
+## Project Context
+
+This is an NBA game prediction system using PostgreSQL/Supabase with:
+- Local PostgreSQL database (James/NBA schema)
+- Supabase cloud database (mxnpfsiyaqqwdcokukij.supabase.co)
+- Vector embeddings for news and analysis
+- Machine learning prediction models
+
+## Database Connection
+
+Use `db_config.py` for database connections:
+
+```python
+from db_config import get_connection, DB_CONFIG
+
+# Automatically uses local or Supabase based on USE_SUPABASE env var
+conn = get_connection()
+```
+
+Switch between databases:
+```bash
+# Local
+python script.py
+
+# Supabase
+$env:USE_SUPABASE="true"
+python script.py
+```
+
+## Supabase MCP Integration
+
+If Supabase MCP is configured, you can query the database directly:
+
+```
+@supabase Show me all NBA teams
+@supabase What's in the Matches table?
+@supabase Get recent Season2024_25_News
+```
+
+## Database Schema
+
+- Schema: `NBA`
+- Key tables: Teams, Players, Matches, News, VectorNews
+- Vector fields use pgvector extension
+
+## Important Files
+
+- `Database.md` - Connection details
+- `db_config.py` - Database configuration
+- `nba_export_*.sql` - Database export files (for manual upload)
+- `SUPABASE_MCP_SETUP.md` - MCP setup guide
+
+## When Writing Database Queries
+
+Always:
+- Use schema-qualified names: `"NBA"."TableName"`
+- Quote table/column names with special characters
+- Use parameterized queries to prevent SQL injection
+- Handle vector fields properly with pgvector syntax
+
+## Project URLs
+
+- Supabase Dashboard: https://supabase.com/dashboard/project/mxnpfsiyaqqwdcokukij
+- Local DB: localhost/James/NBA
+

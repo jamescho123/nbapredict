@@ -1,0 +1,126 @@
+{
+  "MatchEmbeddings": {
+    "status": "skipped",
+    "rows": 0
+  },
+  "MatchPlayer": {
+    "status": "skipped",
+    "rows": 0
+  },
+  "Matches": {
+    "status": "success",
+    "local_count": 1179,
+    "inserted": 1179,
+    "supabase_count": 1179,
+    "match": true
+  },
+  "News": {
+    "status": "success",
+    "local_count": 7298,
+    "inserted": 7298,
+    "supabase_count": 7298,
+    "match": true
+  },
+  "PlayerEmbeddings": {
+    "status": "skipped",
+    "rows": 0
+  },
+  "Players": {
+    "status": "success",
+    "local_count": 50,
+    "inserted": 50,
+    "supabase_count": 50,
+    "match": true
+  },
+  "Schedule": {
+    "status": "success",
+    "local_count": 1251,
+    "inserted": 1251,
+    "supabase_count": 1251,
+    "match": true
+  },
+  "Season2024_25_News": {
+    "status": "success",
+    "local_count": 763,
+    "inserted": 763,
+    "supabase_count": 763,
+    "match": true
+  },
+  "Season2024_25_Results": {
+    "status": "success",
+    "local_count": 24,
+    "inserted": 24,
+    "supabase_count": 24,
+    "match": true
+  },
+  "Season2024_25_Schedule": {
+    "status": "success",
+    "local_count": 24,
+    "inserted": 24,
+    "supabase_count": 24,
+    "match": true
+  },
+  "TeamEmbeddings": {
+    "status": "skipped",
+    "rows": 0
+  },
+  "TeamPlayer": {
+    "status": "success",
+    "local_count": 11603,
+    "inserted": 11603,
+    "supabase_count": 2603,
+    "match": false
+  },
+  "Teams": {
+    "status": "success",
+    "local_count": 62,
+    "inserted": 62,
+    "supabase_count": 62,
+    "match": true
+  },
+  "Test2024_25": {
+    "status": "success",
+    "local_count": 2,
+    "inserted": 2,
+    "supabase_count": 2,
+    "match": true
+  },
+  "UserPredictions": {
+    "status": "skipped",
+    "rows": 0
+  },
+  "UserPreferences": {
+    "status": "error",
+    "error": "relation \"NBA.UserPreferences\" does not exist\n"
+  },
+  "UserSessions": {
+    "status": "error",
+    "error": "relation \"NBA.UserSessions\" does not exist\n"
+  },
+  "Users": {
+    "status": "error",
+    "error": "relation \"NBA.Users\" does not exist\n"
+  },
+  "VectorNews": {
+    "status": "success",
+    "local_count": 7298,
+    "inserted": 7298,
+    "supabase_count": 7298,
+    "match": true
+  },
+  "entity": {
+    "status": "error",
+    "error": "can't adapt type 'dict'"
+  },
+  "entity_mention": {
+    "status": "error",
+    "error": "can't adapt type 'dict'"
+  },
+  "news": {
+    "status": "success",
+    "local_count": 3,
+    "inserted": 3,
+    "supabase_count": 3,
+    "match": true
+  }
+}

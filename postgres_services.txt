@@ -1,0 +1,2 @@
+SERVICE_NAME: postgresql-x64-17
+DISPLAY_NAME: postgresql-x64-17 - PostgreSQL Server 17

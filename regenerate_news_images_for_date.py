@@ -25,8 +25,8 @@ def regenerate_images_for_date(target_date: date) -> None:
         cur.close()
         conn.close()
 
-    # Process all pending items (large limit to be safe)
-    update_news_with_images(limit=500)
+    # Process all pending items with fresh prompts and images
+    update_news_with_images(limit=500, force_refresh=True)
 
 
 if __name__ == "__main__":

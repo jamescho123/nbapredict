@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "nba-database": {
+      "command": "python",
+      "args": [
+        "C:\\Users\\hp\\OneDrive\\文档\\GitHub\\nbapredict\\mcp_supabase_server.py"
+      ]
+    }
+  }
+}
+

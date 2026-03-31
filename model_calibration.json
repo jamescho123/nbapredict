@@ -1,0 +1,13 @@
+{
+  "timestamp": "2025-10-09T23:37:42.656305",
+  "adjustments": {
+    "confidence_multiplier": 0.5186647748979303,
+    "home_score_adjustment": 2.4583333333333335,
+    "away_score_adjustment": 5.666666666666667,
+    "home_advantage_multiplier": 0.8,
+    "strength_variance_multiplier": 0.7,
+    "score_prediction_reliability": 1.0
+  },
+  "backtest_source": "auto_calibration",
+  "version": "1.0"
+}

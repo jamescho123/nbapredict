@@ -1,9 +1,18 @@
 import streamlit as st
-from app_pages import Check_Stats, News, Predict, Ranking, Simple_Predict, Hybrid_Predict, Entity_Extraction, News_Detail, News_Image_Manager
 from datetime import datetime, date, timedelta
+from importlib import import_module
 import pandas as pd
 from db_config import get_connection, DB_SCHEMA
 from nba_supabase_auth import check_authentication, is_admin, logout_user
+
+
+def render_page(module_name):
+    """Import page modules lazily so one broken page does not stop the whole app."""
+    try:
+        module = import_module(f"app_pages.{module_name}")
+        module.app()
+    except Exception as e:
+        st.error(f"Failed to load page '{module_name}': {e}")
 
 def main():
     st.set_page_config(
@@ -293,43 +302,38 @@ def main():
     elif st.session_state.current_page == 'Home':
         home_page()
     elif st.session_state.current_page == 'Login':
-        from app_pages import Login_Supabase
-        Login_Supabase.app()
+        render_page("Login_Supabase")
     elif st.session_state.current_page == 'Profile':
         if is_admin():
-            from app_pages import Profile
-            Profile.app()
+            render_page("Profile")
     elif st.session_state.current_page == 'User_Management':
         if is_admin():
-            from app_pages import User_Management
-            User_Management.app()
+            render_page("User_Management")
     elif st.session_state.current_page == 'Page_Management':
         if is_admin():
-            from app_pages import Page_Management
-            Page_Management.app()
+            render_page("Page_Management")
     elif st.session_state.current_page == 'News_Image_Manager':
         if is_admin():
-            News_Image_Manager.app()
+            render_page("News_Image_Manager")
     elif st.session_state.current_page == 'Check Stats':
-        Check_Stats.app()
+        render_page("Check_Stats")
     elif st.session_state.current_page == 'News':
-        News.app()
+        render_page("News")
     elif st.session_state.current_page == 'News Detail':
-        News_Detail.app()
+        render_page("News_Detail")
 
     elif st.session_state.current_page == 'Entity Extraction':
-        Entity_Extraction.app()
+        render_page("Entity_Extraction")
     elif st.session_state.current_page == 'Predict':
-        Predict.app()
+        render_page("Predict")
     elif st.session_state.current_page == 'Simple Predict':
-        Simple_Predict.app()
+        render_page("Simple_Predict")
     elif st.session_state.current_page == 'Hybrid Predict':
-        Hybrid_Predict.app()
+        render_page("Hybrid_Predict")
     elif st.session_state.current_page == 'Ranking':
-        Ranking.app()
+        render_page("Ranking")
     elif st.session_state.current_page == 'Chatbot':
-        from app_pages import Chatbot
-        Chatbot.app()
+        render_page("Chatbot")
 
 
 def landing_page_view():

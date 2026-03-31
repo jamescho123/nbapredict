@@ -1,0 +1,50 @@
+=== Manual psql Commands for Supabase Connection ===
+
+1. SET PASSWORD (Windows PowerShell):
+$env:PGPASSWORD="VXUXqY9Uofg9ujoo"
+
+2. SET PASSWORD (Windows CMD):
+SET PGPASSWORD=VXUXqY9Uofg9ujoo
+
+3. TEST CONNECTION:
+psql -h db.mxnpfsiyaqqwdcokukij.supabase.co -p 5432 -d postgres -U postgres -c "SELECT version();"
+
+4. IMPORT DATABASE:
+psql -h db.mxnpfsiyaqqwdcokukij.supabase.co -p 5432 -d postgres -U postgres -f nba_manual_export_20251024_201041.sql
+
+5. VERIFY TABLES:
+psql -h db.mxnpfsiyaqqwdcokukij.supabase.co -p 5432 -d postgres -U postgres -c "SELECT table_name FROM information_schema.tables WHERE table_schema = 'NBA' ORDER BY table_name;"
+
+6. CHECK ROW COUNTS:
+psql -h db.mxnpfsiyaqqwdcokukij.supabase.co -p 5432 -d postgres -U postgres -c "SELECT 'Matches' as table_name, COUNT(*) FROM \"NBA\".\"Matches\";"
+
+=== Alternative: Interactive psql Session ===
+
+1. Connect:
+psql -h db.mxnpfsiyaqqwdcokukij.supabase.co -p 5432 -d postgres -U postgres
+
+2. Once connected, run:
+\i nba_manual_export_20251024_201041.sql
+
+3. Check tables:
+\dt "NBA".*
+
+4. Exit:
+\q
+
+=== Troubleshooting ===
+
+If psql not found:
+- Download from: https://www.postgresql.org/download/windows/
+- Or use EDB installer: https://www.enterprisedb.com/downloads/postgres-postgresql-downloads
+- Add to PATH: C:\Program Files\PostgreSQL\16\bin
+
+If connection timeout:
+- Check firewall/antivirus
+- Verify Supabase project is active
+- Try connection pooler: -h mxnpfsiyaqqwdcokukij.supabase.co -p 6543
+
+If "password authentication failed":
+- Verify password: VXUXqY9Uofg9ujoo
+- Check Supabase dashboard for password reset
+
